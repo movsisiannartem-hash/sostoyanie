@@ -1883,7 +1883,7 @@ body.page-loaded .hero-visual-wrap {
     display: none !important;
   }
 
-  /* Centered Hero on Tablet & Mobile: Immersive Full Model + 100% Viewport Height (до конца низа) */
+  /* Centered Hero on Tablet & Mobile: Immersive Full Model + 100% Viewport Height (Matching Golden Reference Photo) */
   .hero-section {
     display: flex;
     flex-direction: column;
@@ -1892,8 +1892,8 @@ body.page-loaded .hero-visual-wrap {
     min-height: 100vh;
     min-height: 100svh; /* Exactly fills screen on mobile Safari/Chrome without cutting off or peeking next section */
     min-height: 100dvh;
-    padding-top: 54px; /* Sits naturally under fixed header */
-    padding-bottom: clamp(16px, 3vh, 26px); /* Clean luxury breathing room above Safari bottom bar */
+    padding-top: 52px; /* Sits naturally under fixed header */
+    padding-bottom: clamp(10px, 2vh, 18px); /* Clean luxury breathing room above Safari bottom bar */
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
@@ -1907,8 +1907,8 @@ body.page-loaded .hero-visual-wrap {
     width: 100%;
     max-width: 100%;
     flex: 1 1 auto;
-    min-height: 240px;
-    max-height: 52vh;
+    min-height: 220px;
+    max-height: 48vh;
     margin: 0 auto;
     padding: 0;
     opacity: 1 !important;
@@ -1925,24 +1925,24 @@ body.page-loaded .hero-visual-wrap {
     width: auto;
     max-width: 100%;
     height: 100%;
-    max-height: 52vh;
+    max-height: 48vh;
     object-fit: contain; /* Full model portrait: face, voluminous curls, and bare shoulder in full view */
     object-position: center top;
     display: block;
     margin: 0 auto;
-    /* Feather only the very bottom edge into the dark background */
+    /* Soft luxurious dissolution at bottom melting directly into dark background */
     -webkit-mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 86%,
-      rgba(0, 0, 0, 0.55) 94%,
+      #000 84%,
+      rgba(0, 0, 0, 0.45) 94%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 86%,
-      rgba(0, 0, 0, 0.55) 94%,
+      #000 84%,
+      rgba(0, 0, 0, 0.45) 94%,
       transparent 100%
     );
   }
@@ -1960,56 +1960,63 @@ body.page-loaded .hero-visual-wrap {
     position: relative;
     z-index: 2;
     flex: 0 0 auto;
-    margin-top: 0;
-    padding: 0 16px;
+    margin-top: -20px; /* Softly overlays onto the feathered lower edge of the portrait */
+    padding: 0 20px;
     width: 100%;
+    max-width: 100%;
   }
 
   .hero-copy-refined {
     margin-left: 0 !important;
     max-width: 100%;
-    text-align: center;
+    text-align: left; /* Left-aligned typography matching golden reference photo */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Left-aligned */
+    width: 100%;
   }
 
   .hero-top-eyebrow {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 6px;
+    justify-content: flex-start;
+    align-self: flex-start;
+    margin-bottom: 8px;
     gap: 8px;
   }
 
   .hero-top-eyebrow .eyebrow-line {
-    width: 14px;
+    width: 16px;
     height: 1px;
     background-color: var(--accent-gold);
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   .hero-top-eyebrow .eyebrow-text {
-    font-size: 0.58rem; /* Smaller per user request */
+    font-size: 0.6rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     color: var(--accent-gold-light);
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .hero-title-refined {
-    text-align: center;
-    font-size: clamp(1.8rem, 7.5vw, 2.35rem); /* Noticeably larger per user request */
-    line-height: 1.14;
-    letter-spacing: 0.01em;
-    text-transform: none; /* Sentence case matching high-fashion reference Photo 2 */
-    margin-bottom: 12px;
+    text-align: left; /* Left-aligned */
+    font-family: var(--font-serif);
+    font-size: clamp(2.05rem, 8.4vw, 2.6rem); /* Noticeably larger per user request */
+    line-height: 1.12;
+    letter-spacing: 0.005em;
+    text-transform: none; /* Sentence case matching high-fashion reference */
+    margin-bottom: 18px;
+    width: 100%;
   }
 
   .hero-line-white {
     display: block;
     color: #FFFFFF;
     margin-bottom: 2px;
+    white-space: nowrap;
   }
 
   .hero-line-gold-block {
@@ -2019,7 +2026,7 @@ body.page-loaded .hero-visual-wrap {
 
   .hero-line.hero-word-1,
   .hero-line.hero-word-2 {
-    display: inline; /* Strictly 2 lines on mobile matching Photo 2: "Эстетика вашего" / "совершенного цвета" */
+    display: inline; /* Strictly 2 lines on mobile matching photo: "Эстетика вашего" / "совершенного цвета" */
     white-space: normal;
     color: var(--accent-gold-light);
     background: linear-gradient(135deg, #F9E5D4 0%, #E8CCB4 50%, #D4A373 100%);
@@ -2033,16 +2040,16 @@ body.page-loaded .hero-visual-wrap {
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 10px;
-    margin-top: 14px;
-    margin-bottom: 6px;
+    gap: 12px;
+    margin-top: 6px;
+    margin-bottom: 4px;
   }
 
   .hero-cta-group-refined .btn-gold {
     width: 100%;
-    max-width: 330px;
-    padding: 15px 28px;
-    font-size: 0.95rem;
+    max-width: 100%; /* Full width between paddings matching reference photo */
+    padding: 16px 28px;
+    font-size: 0.98rem;
     font-weight: 500;
     letter-spacing: 0.02em;
     display: flex;
@@ -2051,7 +2058,7 @@ body.page-loaded .hero-visual-wrap {
     border-radius: 9999px;
     background: linear-gradient(135deg, #F3DFCE 0%, #E8CCB4 50%, #D8B79C 100%);
     color: #08080A;
-    box-shadow: 0 10px 28px rgba(232, 204, 180, 0.28);
+    box-shadow: 0 12px 32px rgba(232, 204, 180, 0.32);
     transition: all var(--transition-fast);
   }
 
@@ -2059,16 +2066,17 @@ body.page-loaded .hero-visual-wrap {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.88rem;
-    gap: 8px;
+    font-size: 0.9rem;
+    gap: 10px;
     color: rgba(255, 255, 255, 0.9);
-    min-height: 40px;
-    padding: 4px 10px;
+    min-height: 42px;
+    padding: 4px 12px;
+    align-self: center;
   }
 
   .hero-sec-arrow-circle {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.25);
     display: flex;
@@ -2079,42 +2087,86 @@ body.page-loaded .hero-visual-wrap {
   }
 
   .hero-scroll-indicator {
-    display: none !important; /* Hide mouse scroll icon on mobile devices, eliminating bottom empty gap */
+    display: flex !important; /* Visible on mobile matching reference photo */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    align-self: center;
+    gap: 3px;
+    opacity: 0.8;
+  }
+
+  .scroll-mouse-pill {
+    width: 16px;
+    height: 26px;
+    border-radius: 12px;
+    border: 1.2px solid rgba(232, 204, 180, 0.45);
+    display: flex;
+    justify-content: center;
+    padding-top: 4px;
+  }
+
+  .scroll-mouse-wheel {
+    width: 2.5px;
+    height: 5px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+  }
+
+  .scroll-chevron-down {
+    width: 12px;
+    height: 12px;
+    color: var(--accent-gold);
+    opacity: 0.75;
   }
 }
 
 /* Extra short mobile viewport protection (e.g. iPhone SE / browser toolbars) */
 @media (max-height: 720px) and (max-width: 991px) {
   .hero-section {
-    padding-top: 50px;
-    padding-bottom: 14px;
+    padding-top: 48px;
+    padding-bottom: 10px;
     min-height: 100vh;
     min-height: 100svh;
     min-height: 100dvh;
   }
   .hero-visual-wrap {
-    max-height: 44vh;
+    max-height: 42vh;
     min-height: 180px;
   }
   .hero-model-img {
-    max-height: 44vh;
+    max-height: 42vh;
   }
   .hero-container {
-    margin-top: 0;
+    margin-top: -14px;
+    padding: 0 16px;
   }
   .hero-title-refined {
-    font-size: clamp(1.55rem, 6.6vw, 1.9rem);
-    margin-bottom: 8px;
+    font-size: clamp(1.75rem, 7.5vw, 2.15rem);
+    margin-bottom: 12px;
   }
   .hero-cta-group-refined {
     gap: 8px;
-    margin-top: 10px;
+    margin-top: 6px;
     margin-bottom: 2px;
   }
   .hero-cta-group-refined .btn-gold {
     padding: 13px 24px;
-    font-size: 0.92rem;
-    max-width: 310px;
+    font-size: 0.94rem;
+  }
+  .hero-secondary-action {
+    min-height: 36px;
+    font-size: 0.85rem;
+  }
+  .scroll-mouse-pill {
+    width: 15px;
+    height: 24px;
   }
 }
 
