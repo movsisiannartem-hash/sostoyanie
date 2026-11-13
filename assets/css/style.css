@@ -630,13 +630,25 @@ body.page-loaded .hero-visual-wrap {
 
 @media (min-width: 992px) {
   .hero-copy-refined {
-    margin-left: 0; /* Balanced luxury editorial alignment without excessive leftward gap */
+    margin-left: -20px; /* Gently shifted left per user request */
   }
 }
 
-@media (min-width: 1380px) {
+@media (min-width: 1200px) {
   .hero-copy-refined {
-    margin-left: 0;
+    margin-left: -45px; /* Confident editorial alignment shifted left */
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-copy-refined {
+    margin-left: -75px; /* Clean luxury spacing on wide screens */
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-copy-refined {
+    margin-left: -110px; /* Spacious balance on large displays */
   }
 }
 
