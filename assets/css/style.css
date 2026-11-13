@@ -1883,17 +1883,20 @@ body.page-loaded .hero-visual-wrap {
     display: none !important;
   }
 
-  /* Centered Hero on Tablet & Mobile: Immersive Full Model + Natural Flow (Photo 2 Reference) */
+  /* Centered Hero on Tablet & Mobile: Immersive Full Model + 100% Viewport Height (до конца низа) */
   .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    min-height: auto;
+    justify-content: space-between;
+    min-height: 100vh;
+    min-height: 100svh; /* Exactly fills screen on mobile Safari/Chrome without cutting off or peeking next section */
+    min-height: 100dvh;
     padding-top: 54px; /* Sits naturally under fixed header */
-    padding-bottom: 24px; /* "только чуть чуть" clean breathing room */
+    padding-bottom: clamp(16px, 3vh, 26px); /* Clean luxury breathing room above Safari bottom bar */
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .hero-visual-wrap {
@@ -1903,9 +1906,9 @@ body.page-loaded .hero-visual-wrap {
     bottom: auto;
     width: 100%;
     max-width: 100%;
-    height: auto;
-    max-height: none;
-    min-height: auto;
+    flex: 1 1 auto;
+    min-height: 240px;
+    max-height: 52vh;
     margin: 0 auto;
     padding: 0;
     opacity: 1 !important;
@@ -1915,14 +1918,14 @@ body.page-loaded .hero-visual-wrap {
     overflow: visible;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .hero-model-img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    max-height: 48vh;
+    width: auto;
+    max-width: 100%;
+    height: 100%;
+    max-height: 52vh;
     object-fit: contain; /* Full model portrait: face, voluminous curls, and bare shoulder in full view */
     object-position: center top;
     display: block;
@@ -1956,7 +1959,8 @@ body.page-loaded .hero-visual-wrap {
   .hero-container {
     position: relative;
     z-index: 2;
-    margin-top: -18px; /* Gentle overlap onto the feathered edge without covering her shoulder */
+    flex: 0 0 auto;
+    margin-top: 0;
     padding: 0 16px;
     width: 100%;
   }
@@ -2083,25 +2087,29 @@ body.page-loaded .hero-visual-wrap {
 @media (max-height: 720px) and (max-width: 991px) {
   .hero-section {
     padding-top: 50px;
-    padding-bottom: 16px;
+    padding-bottom: 14px;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
   }
   .hero-visual-wrap {
-    max-height: 42vh;
+    max-height: 44vh;
+    min-height: 180px;
   }
   .hero-model-img {
-    max-height: 42vh;
+    max-height: 44vh;
   }
   .hero-container {
-    margin-top: -14px;
+    margin-top: 0;
   }
   .hero-title-refined {
-    font-size: clamp(1.6rem, 6.8vw, 1.95rem);
-    margin-bottom: 10px;
+    font-size: clamp(1.55rem, 6.6vw, 1.9rem);
+    margin-bottom: 8px;
   }
   .hero-cta-group-refined {
     gap: 8px;
     margin-top: 10px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
   .hero-cta-group-refined .btn-gold {
     padding: 13px 24px;
