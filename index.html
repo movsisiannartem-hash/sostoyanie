@@ -91,16 +91,43 @@
 
   <!-- Mobile Drawer Menu -->
   <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <div class="mobile-nav-brand">
+        <span class="mobile-nav-brand-title">СОСТОЯНИЕ</span>
+        <span class="mobile-nav-brand-sub">Центр окрашивания и стрижки волос</span>
+      </div>
+    </div>
     <div class="mobile-nav-links">
-      <a href="#services" class="mobile-nav-link">Услуги</a>
-      <a href="#portfolio" class="mobile-nav-link">Портфолио</a>
-      <a href="#reviews" class="mobile-nav-link">Отзывы</a>
-      <a href="#contacts" class="mobile-nav-link">Контакты</a>
+      <a href="#services" class="mobile-nav-link">
+        <span class="mobile-nav-num">01</span>
+        <span class="mobile-nav-text">Услуги и цены</span>
+      </a>
+      <a href="#portfolio" class="mobile-nav-link">
+        <span class="mobile-nav-num">02</span>
+        <span class="mobile-nav-text">Галерея работ</span>
+      </a>
+      <a href="#reviews" class="mobile-nav-link">
+        <span class="mobile-nav-num">03</span>
+        <span class="mobile-nav-text">Отзывы гостей</span>
+      </a>
+      <a href="#contacts" class="mobile-nav-link">
+        <span class="mobile-nav-num">04</span>
+        <span class="mobile-nav-text">Контакты и адрес</span>
+      </a>
     </div>
     <div class="mobile-nav-footer">
-      <p style="font-size: 0.95rem; color: #FFFFFF; font-weight: 600;">+7 (965) 457-41-50</p>
-      <p style="font-size: 0.84rem; color: var(--text-muted);">г. Краснодар, ул. Тургенева, 133 • Ежедневно с 10:00 до 21:00</p>
-      <a href="https://n567509.yclients.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width: 100%; margin-top: 10px;">
+      <div class="mobile-nav-contact-card">
+        <a href="tel:+79654574150" class="mobile-nav-phone-link">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>+7 (965) 457-41-50</span>
+        </a>
+        <div class="mobile-nav-messengers">
+          <a href="https://wa.me/79654574150?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%20%C2%AB%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%C2%BB" target="_blank" rel="noopener noreferrer" class="mobile-nav-msg-pill">WhatsApp</a>
+          <a href="https://t.me/sostoyaniye_krd" target="_blank" rel="noopener noreferrer" class="mobile-nav-msg-pill">Telegram</a>
+        </div>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px;">г. Краснодар, ул. Тургенева, 133 • Ежедневно с 10:00 до 21:00</p>
+      <a href="https://n567509.yclients.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold mobile-nav-cta">
         <span>Записаться онлайн</span>
         <span class="btn-arrow" aria-hidden="true">→</span>
       </a>
@@ -1635,6 +1662,16 @@
           </div>
         </div>
 
+        <!-- Interactive indicator dashes for carousel navigation -->
+        <div class="reviews-progress-dots" id="reviewsDots" aria-label="Индикаторы отзывов">
+          <button type="button" class="progress-dash active" data-slide="0" aria-label="Отзыв 1"></button>
+          <button type="button" class="progress-dash" data-slide="1" aria-label="Отзыв 2"></button>
+          <button type="button" class="progress-dash" data-slide="2" aria-label="Отзыв 3"></button>
+          <button type="button" class="progress-dash" data-slide="3" aria-label="Отзыв 4"></button>
+          <button type="button" class="progress-dash" data-slide="4" aria-label="Отзыв 5"></button>
+          <button type="button" class="progress-dash" data-slide="5" aria-label="Отзыв 6"></button>
+        </div>
+
       </div>
     </section>
 
@@ -1678,6 +1715,17 @@
                 <button type="button" class="copy-mini-btn" id="copyPhoneBtn" aria-label="Скопировать телефон">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                 </button>
+              </div>
+              <!-- Mobile Fast Call / Chat Actions -->
+              <div class="mobile-contact-fast-actions">
+                <a href="tel:+79654574150" class="btn btn-outline btn-sm mobile-fast-action-btn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  <span>Позвонить</span>
+                </a>
+                <a href="https://wa.me/79654574150?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%20%C2%AB%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%C2%BB" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm mobile-fast-action-btn">
+                  <span>WhatsApp</span>
+                  <span class="btn-arrow" aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
 
@@ -1805,6 +1853,48 @@
     </div>
     <span class="toast-message" id="toastMessage">Скопировано в буфер обмена</span>
   </div>
+
+  <!-- Portfolio Lightbox Modal (Full-Screen View) -->
+  <div class="portfolio-lightbox" id="portfolioLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр фотографии работы">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-dialog">
+      <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Закрыть просмотр">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="lightbox-media">
+        <img src="" alt="" class="lightbox-image" id="lightboxImg">
+      </div>
+      <div class="lightbox-meta">
+        <span class="lightbox-tag">«Состояние» • Краснодар</span>
+        <h3 class="lightbox-title" id="lightboxCaption"></h3>
+        <a href="https://n567509.yclients.com" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm lightbox-cta">
+          <span>Хочу такое же окрашивание</span>
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Mobile Quick-Action Bar (Appears when scrolled past hero) -->
+  <aside class="mobile-floating-cta" id="mobileFloatingCta" aria-label="Быстрая запись в салон">
+    <a href="tel:+79654574150" class="floating-cta-icon-btn" aria-label="Позвонить в салон">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+    </a>
+    <a href="https://wa.me/79654574150?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%B2%20%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%20%C2%AB%D0%A1%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D0%B5%C2%BB" target="_blank" rel="noopener noreferrer" class="floating-cta-icon-btn" aria-label="Написать в WhatsApp">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+    </a>
+    <a href="https://n567509.yclients.com" target="_blank" rel="noopener noreferrer" class="floating-cta-book-btn">
+      <span>Записаться</span>
+      <span class="btn-arrow" aria-hidden="true">→</span>
+    </a>
+  </aside>
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>

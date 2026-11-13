@@ -102,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const mobileToggle = document.getElementById('mobileMenuToggle');
   const mobileDrawer = document.getElementById('mobileNavDrawer');
   const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileFloatingCta = document.getElementById('mobileFloatingCta');
 
   function toggleMobileMenu(isOpen) {
     if (!mobileToggle || !mobileDrawer) return;
@@ -110,6 +111,14 @@ document.addEventListener('DOMContentLoaded', function () {
     mobileDrawer.classList.toggle('open', shouldOpen);
     document.body.style.overflow = shouldOpen ? 'hidden' : '';
     mobileToggle.setAttribute('aria-expanded', shouldOpen);
+
+    if (mobileFloatingCta) {
+      if (shouldOpen) {
+        mobileFloatingCta.classList.remove('visible');
+      } else {
+        handleFloatingCta();
+      }
+    }
   }
 
   if (mobileToggle) {
@@ -136,6 +145,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
       tabButtons.forEach(function (b) { b.classList.remove('active'); });
       this.classList.add('active');
+
+      // Smooth horizontal auto-scroll to center clicked tab on mobile
+      if (window.innerWidth < 992) {
+        this.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
 
       categoryGroups.forEach(function (group) {
         const groupCat = group.getAttribute('data-category');
@@ -231,6 +245,13 @@ document.addEventListener('DOMContentLoaded', function () {
       reviewCounter.textContent = `${displayIndex} / ${totalReviews}`;
     }
 
+    // Sync progress dashes
+    const activeDotIndex = currentReviewIndex % totalReviews;
+    const reviewDots = document.querySelectorAll('.reviews-progress-dots .progress-dash');
+    reviewDots.forEach(function (dot, idx) {
+      dot.classList.toggle('active', idx === activeDotIndex);
+    });
+
     // Both navigation arrows remain active for infinite circular navigation
     if (reviewPrevBtn) reviewPrevBtn.disabled = false;
     if (reviewNextBtn) reviewNextBtn.disabled = false;
@@ -291,6 +312,18 @@ document.addEventListener('DOMContentLoaded', function () {
   if (reviewPrevBtn) {
     reviewPrevBtn.addEventListener('click', prevReview);
   }
+
+  // Click on review progress dashes
+  const reviewProgressDashes = document.querySelectorAll('.reviews-progress-dots .progress-dash');
+  reviewProgressDashes.forEach(function (dash) {
+    dash.addEventListener('click', function () {
+      const targetIdx = parseInt(this.getAttribute('data-slide'), 10);
+      if (!isNaN(targetIdx) && !isCarouselBusy) {
+        currentReviewIndex = targetIdx;
+        updateReviewSlider(true);
+      }
+    });
+  });
 
   // Touch Swipe for mobile carousel
   if (reviewsTrack) {
@@ -427,11 +460,82 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(renderCursorGlow);
   }
 
+  // ------------------------------------------------------------------------
+  // 8. Portfolio Lightbox Modal (Full-Screen Image View)
+  // ------------------------------------------------------------------------
+  const portfolioLightbox = document.getElementById('portfolioLightbox');
+  const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+  const lightboxBackdrop = document.getElementById('lightboxBackdrop');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const portfolioSlots = document.querySelectorAll('.portfolio-photo-slot');
+
+  function openLightbox(imgSrc, imgAlt) {
+    if (!portfolioLightbox || !lightboxImg) return;
+    lightboxImg.src = imgSrc;
+    lightboxImg.alt = imgAlt || 'Работа стилистов салона Состояние';
+    if (lightboxCaption) {
+      lightboxCaption.textContent = imgAlt || 'Окрашивание волос';
+    }
+    portfolioLightbox.classList.add('active');
+    portfolioLightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!portfolioLightbox) return;
+    portfolioLightbox.classList.remove('active');
+    portfolioLightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  portfolioSlots.forEach(function (slot) {
+    slot.addEventListener('click', function () {
+      const img = this.querySelector('img');
+      if (img) {
+        openLightbox(img.src, img.alt);
+      }
+    });
+  });
+
+  if (lightboxCloseBtn) {
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxBackdrop) {
+    lightboxBackdrop.addEventListener('click', closeLightbox);
+  }
+
+  // ------------------------------------------------------------------------
+  // 9. Floating Mobile Quick-Action Pill
+  // ------------------------------------------------------------------------
+  function handleFloatingCta() {
+    if (!mobileFloatingCta) return;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const heroSection = document.getElementById('hero');
+    const heroHeight = heroSection ? heroSection.offsetHeight : 500;
+
+    const isDrawerOpen = mobileDrawer && mobileDrawer.classList.contains('open');
+    const isLightboxOpen = portfolioLightbox && portfolioLightbox.classList.contains('active');
+
+    if (scrollTop > heroHeight * 0.65 && !isDrawerOpen && !isLightboxOpen) {
+      mobileFloatingCta.classList.add('visible');
+    } else {
+      mobileFloatingCta.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', handleFloatingCta, { passive: true });
+  handleFloatingCta();
+
   // Keyboard Escape listener
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       if (mobileDrawer && mobileDrawer.classList.contains('open')) {
         toggleMobileMenu(false);
+      }
+      if (portfolioLightbox && portfolioLightbox.classList.contains('active')) {
+        closeLightbox();
       }
     }
   });
