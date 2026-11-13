@@ -1889,11 +1889,11 @@ body.page-loaded .hero-visual-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     min-height: 100svh;
     min-height: 100dvh;
-    padding-top: 52px; /* Sits naturally under fixed header */
-    padding-bottom: 14px;
+    padding-top: 56px; /* Sits naturally under fixed header */
+    padding-bottom: 12px;
     position: relative;
     overflow: hidden;
   }
@@ -1905,9 +1905,9 @@ body.page-loaded .hero-visual-wrap {
     bottom: auto;
     width: 100%;
     max-width: 100%;
-    height: 46vh;
-    max-height: 390px;
-    min-height: 250px;
+    height: 44vh;
+    max-height: 380px;
+    min-height: 240px;
     margin: 0;
     padding: 0;
     opacity: 1 !important;
@@ -1924,24 +1924,24 @@ body.page-loaded .hero-visual-wrap {
     max-width: 440px;
     height: 100%;
     object-fit: cover;
-    object-position: center 8%; /* Centers model face, curls, and bare shoulder */
+    object-position: center top; /* Centers model face, curls, and bare shoulder */
     display: block;
     margin: 0 auto;
-    /* Soft luxurious dissolution at bottom melting directly behind the eyebrow and title */
+    /* Soft luxurious dissolution at bottom melting directly into dark background */
     -webkit-mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 58%,
-      rgba(0, 0, 0, 0.78) 74%,
-      rgba(0, 0, 0, 0.3) 88%,
+      #000 76%,
+      rgba(0, 0, 0, 0.72) 88%,
+      rgba(0, 0, 0, 0.22) 96%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 58%,
-      rgba(0, 0, 0, 0.78) 74%,
-      rgba(0, 0, 0, 0.3) 88%,
+      #000 76%,
+      rgba(0, 0, 0, 0.72) 88%,
+      rgba(0, 0, 0, 0.22) 96%,
       transparent 100%
     );
   }
@@ -1954,11 +1954,11 @@ body.page-loaded .hero-visual-wrap {
     display: none;
   }
 
-  /* Text container floats gracefully right over the soft feathered bottom of the portrait */
+  /* Text container sits cleanly below the portrait with subtle breathing room */
   .hero-container {
     position: relative;
     z-index: 2;
-    margin-top: -36px; /* Seamless overlap onto soft feathered photo edge like Photo 2 */
+    margin-top: -16px; /* Gentle overlap onto the feathered edge without covering her shoulder */
     padding: 0 16px;
     width: 100%;
   }
@@ -1981,22 +1981,23 @@ body.page-loaded .hero-visual-wrap {
   }
 
   .hero-top-eyebrow .eyebrow-line {
-    width: 20px;
+    width: 22px;
     height: 1px;
     background-color: var(--accent-gold);
-    opacity: 0.8;
+    opacity: 0.85;
   }
 
   .hero-top-eyebrow .eyebrow-text {
     font-size: 0.68rem;
-    letter-spacing: 0.18em;
-    color: var(--accent-gold);
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold-light);
     text-transform: uppercase;
   }
 
   .hero-title-refined {
     text-align: center;
-    font-size: clamp(1.45rem, 6.2vw, 1.95rem);
+    font-size: clamp(1.48rem, 6.2vw, 1.95rem);
     line-height: 1.15;
     letter-spacing: 0.01em;
     text-transform: none; /* Sentence case matching high-fashion reference Photo 2 */
@@ -2005,6 +2006,7 @@ body.page-loaded .hero-visual-wrap {
 
   .hero-line-white {
     display: block;
+    color: #FFFFFF;
     margin-bottom: 2px;
   }
 
@@ -2017,6 +2019,10 @@ body.page-loaded .hero-visual-wrap {
   .hero-line.hero-word-2 {
     display: inline; /* Strictly 2 lines on mobile matching Photo 2: "Эстетика вашего" / "совершенного цвета" */
     white-space: normal;
+    color: var(--accent-gold-light);
+    background: linear-gradient(135deg, #F9E5D4 0%, #E8CCB4 50%, #D4A373 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .hero-cta-group-refined {
@@ -2032,24 +2038,30 @@ body.page-loaded .hero-visual-wrap {
 
   .hero-cta-group-refined .btn-gold {
     width: 100%;
-    max-width: 320px;
-    padding: 14px 26px;
-    font-size: 0.94rem;
+    max-width: 330px;
+    padding: 15px 28px;
+    font-size: 0.95rem;
     font-weight: 500;
+    letter-spacing: 0.02em;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
+    background: linear-gradient(135deg, #F3DFCE 0%, #E8CCB4 50%, #D8B79C 100%);
+    color: #08080A;
     box-shadow: 0 10px 28px rgba(232, 204, 180, 0.28);
+    transition: all var(--transition-fast);
   }
 
   .hero-secondary-action {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.86rem;
+    font-size: 0.88rem;
     gap: 8px;
     color: rgba(255, 255, 255, 0.9);
+    min-height: 44px;
+    padding: 4px 10px;
   }
 
   .hero-sec-arrow-circle {
@@ -2061,6 +2073,7 @@ body.page-loaded .hero-visual-wrap {
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
+    transition: all var(--transition-fast);
   }
 
   .hero-scroll-indicator {
@@ -2090,19 +2103,19 @@ body.page-loaded .hero-visual-wrap {
 /* Extra short mobile viewport protection (e.g. iPhone SE / browser toolbars) */
 @media (max-height: 720px) and (max-width: 991px) {
   .hero-section {
-    padding-top: 50px;
+    padding-top: 48px;
     padding-bottom: 6px;
   }
   .hero-visual-wrap {
-    height: 40vh;
-    max-height: 300px;
-    min-height: 220px;
+    height: 38vh;
+    max-height: 290px;
+    min-height: 200px;
   }
   .hero-container {
-    margin-top: -24px;
+    margin-top: -10px;
   }
   .hero-title-refined {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     margin-bottom: 10px;
   }
   .hero-cta-group-refined {
@@ -2112,8 +2125,8 @@ body.page-loaded .hero-visual-wrap {
   }
   .hero-cta-group-refined .btn-gold {
     padding: 12px 22px;
-    font-size: 0.88rem;
-    max-width: 290px;
+    font-size: 0.9rem;
+    max-width: 300px;
   }
   .hero-scroll-indicator {
     margin-top: 4px;
