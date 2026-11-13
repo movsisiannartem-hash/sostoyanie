@@ -682,23 +682,22 @@ body.page-loaded .hero-visual-wrap {
     gap: 8px;
   }
   .eyebrow-line {
-    width: 16px;
+    width: 14px;
   }
   .eyebrow-text {
-    font-size: 0.64rem;
+    font-size: 0.58rem;
     letter-spacing: 0.14em;
   }
 }
 
-/* Hero Heading (Strictly 3 Lines: enlarged & impactful, shifted left) */
 /* Hero Heading (Strictly 3 Lines on Desktop, 2 Lines on Mobile matching Reference Photo 2) */
 .hero-title-refined {
   font-family: var(--font-serif);
   font-size: clamp(2.1rem, 4.8vw, 4.75rem);
   font-weight: 400;
   line-height: 1.12;
-  letter-spacing: 0.02em;
-  text-transform: none; /* Sentence case matching high-fashion reference Photo 2 */
+  letter-spacing: 0.04em;
+  text-transform: uppercase; /* ALL CAPS on desktop per user request */
   margin-bottom: 38px;
 }
 
@@ -1884,16 +1883,15 @@ body.page-loaded .hero-visual-wrap {
     display: none !important;
   }
 
-  /* Centered Hero on Tablet & Mobile: Immersive Model + Seamless 2-Line Flow (Matching Photo 2 Reference) */
+  /* Centered Hero on Tablet & Mobile: Immersive Full Model + Natural Flow (Photo 2 Reference) */
   .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    min-height: 100svh;
-    min-height: 100dvh;
-    padding-top: 56px; /* Sits naturally under fixed header */
-    padding-bottom: 12px;
+    justify-content: flex-start;
+    min-height: auto;
+    padding-top: 54px; /* Sits naturally under fixed header */
+    padding-bottom: 24px; /* "только чуть чуть" clean breathing room */
     position: relative;
     overflow: hidden;
   }
@@ -1905,10 +1903,10 @@ body.page-loaded .hero-visual-wrap {
     bottom: auto;
     width: 100%;
     max-width: 100%;
-    height: 44vh;
-    max-height: 380px;
-    min-height: 240px;
-    margin: 0;
+    height: auto;
+    max-height: none;
+    min-height: auto;
+    margin: 0 auto;
     padding: 0;
     opacity: 1 !important;
     transform: none !important;
@@ -1917,31 +1915,31 @@ body.page-loaded .hero-visual-wrap {
     overflow: visible;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
   }
 
   .hero-model-img {
     width: 100%;
-    max-width: 440px;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top; /* Centers model face, curls, and bare shoulder */
+    max-width: 380px;
+    height: auto;
+    max-height: 48vh;
+    object-fit: contain; /* Full model portrait: face, voluminous curls, and bare shoulder in full view */
+    object-position: center top;
     display: block;
     margin: 0 auto;
-    /* Soft luxurious dissolution at bottom melting directly into dark background */
+    /* Feather only the very bottom edge into the dark background */
     -webkit-mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 76%,
-      rgba(0, 0, 0, 0.72) 88%,
-      rgba(0, 0, 0, 0.22) 96%,
+      #000 86%,
+      rgba(0, 0, 0, 0.55) 94%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to bottom,
       #000 0%,
-      #000 76%,
-      rgba(0, 0, 0, 0.72) 88%,
-      rgba(0, 0, 0, 0.22) 96%,
+      #000 86%,
+      rgba(0, 0, 0, 0.55) 94%,
       transparent 100%
     );
   }
@@ -1958,7 +1956,7 @@ body.page-loaded .hero-visual-wrap {
   .hero-container {
     position: relative;
     z-index: 2;
-    margin-top: -16px; /* Gentle overlap onto the feathered edge without covering her shoulder */
+    margin-top: -18px; /* Gentle overlap onto the feathered edge without covering her shoulder */
     padding: 0 16px;
     width: 100%;
   }
@@ -1976,29 +1974,29 @@ body.page-loaded .hero-visual-wrap {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
-    gap: 10px;
+    margin-bottom: 6px;
+    gap: 8px;
   }
 
   .hero-top-eyebrow .eyebrow-line {
-    width: 22px;
+    width: 14px;
     height: 1px;
     background-color: var(--accent-gold);
-    opacity: 0.85;
+    opacity: 0.8;
   }
 
   .hero-top-eyebrow .eyebrow-text {
-    font-size: 0.68rem;
+    font-size: 0.58rem; /* Smaller per user request */
     font-weight: 500;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.14em;
     color: var(--accent-gold-light);
     text-transform: uppercase;
   }
 
   .hero-title-refined {
     text-align: center;
-    font-size: clamp(1.48rem, 6.2vw, 1.95rem);
-    line-height: 1.15;
+    font-size: clamp(1.8rem, 7.5vw, 2.35rem); /* Noticeably larger per user request */
+    line-height: 1.14;
     letter-spacing: 0.01em;
     text-transform: none; /* Sentence case matching high-fashion reference Photo 2 */
     margin-bottom: 12px;
@@ -2033,7 +2031,7 @@ body.page-loaded .hero-visual-wrap {
     width: 100%;
     gap: 10px;
     margin-top: 14px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
 
   .hero-cta-group-refined .btn-gold {
@@ -2060,7 +2058,7 @@ body.page-loaded .hero-visual-wrap {
     font-size: 0.88rem;
     gap: 8px;
     color: rgba(255, 255, 255, 0.9);
-    min-height: 44px;
+    min-height: 40px;
     padding: 4px 10px;
   }
 
@@ -2077,59 +2075,38 @@ body.page-loaded .hero-visual-wrap {
   }
 
   .hero-scroll-indicator {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    margin-top: 6px;
-    margin-bottom: 2px;
-    align-self: center;
-    gap: 4px;
-  }
-
-  .scroll-mouse-pill {
-    width: 18px;
-    height: 30px;
-    padding-top: 4px;
-    border-width: 1.2px;
-  }
-
-  .scroll-mouse-wheel {
-    width: 2.5px;
-    height: 5px;
+    display: none !important; /* Hide mouse scroll icon on mobile devices, eliminating bottom empty gap */
   }
 }
 
 /* Extra short mobile viewport protection (e.g. iPhone SE / browser toolbars) */
 @media (max-height: 720px) and (max-width: 991px) {
   .hero-section {
-    padding-top: 48px;
-    padding-bottom: 6px;
+    padding-top: 50px;
+    padding-bottom: 16px;
   }
   .hero-visual-wrap {
-    height: 38vh;
-    max-height: 290px;
-    min-height: 200px;
+    max-height: 42vh;
+  }
+  .hero-model-img {
+    max-height: 42vh;
   }
   .hero-container {
-    margin-top: -10px;
+    margin-top: -14px;
   }
   .hero-title-refined {
-    font-size: 1.35rem;
+    font-size: clamp(1.6rem, 6.8vw, 1.95rem);
     margin-bottom: 10px;
   }
   .hero-cta-group-refined {
     gap: 8px;
     margin-top: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
   }
   .hero-cta-group-refined .btn-gold {
-    padding: 12px 22px;
-    font-size: 0.9rem;
-    max-width: 300px;
-  }
-  .hero-scroll-indicator {
-    margin-top: 4px;
+    padding: 13px 24px;
+    font-size: 0.92rem;
+    max-width: 310px;
   }
 }
 
