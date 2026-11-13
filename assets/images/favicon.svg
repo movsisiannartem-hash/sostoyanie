@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#08080A"/>
+  <!-- Gold Chevron/Wings accent -->
+  <path d="M 18 20 L 32 30 L 46 20 L 39 16 L 32 21 L 25 16 Z" fill="url(#goldGrad)"/>
+  <!-- Elegant C shape -->
+  <path d="M 45 28 C 42 24 37.5 22 32 22 C 21 22 13 30 13 41 C 13 52 21 60 32 60 C 38 60 42.5 58 45.5 54 L 40.5 50.5 C 38.5 53 35.5 54.5 32 54.5 C 24 54.5 18.5 48.5 18.5 41 C 18.5 33.5 24 27.5 32 27.5 C 35.5 27.5 38.5 29 40.5 31.5 Z" fill="#FFFFFF"/>
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2C17C"/>
+      <stop offset="50%" stop-color="#C5A059"/>
+      <stop offset="100%" stop-color="#9B7A38"/>
+    </linearGradient>
+  </defs>
+</svg>
