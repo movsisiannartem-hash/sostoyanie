@@ -1879,9 +1879,11 @@ body.page-loaded .hero-visual-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: auto;
-    padding-top: 76px; /* Generous breathing room under the fixed header */
-    padding-bottom: 44px;
+    justify-content: flex-start;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding-top: 68px; /* Compact breathing room under fixed header */
+    padding-bottom: 14px;
     position: relative;
     overflow: visible;
   }
@@ -1892,11 +1894,11 @@ body.page-loaded .hero-visual-wrap {
     right: auto;
     bottom: auto;
     width: 100%;
-    max-width: 420px;
+    max-width: 320px;
     height: auto;
     max-height: none;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 12px;
     opacity: 1 !important;
     transform: none !important;
     pointer-events: none;
@@ -1908,9 +1910,9 @@ body.page-loaded .hero-visual-wrap {
 
   .hero-model-img {
     width: 100%;
-    max-width: 380px;
+    max-width: 300px;
     height: auto;
-    max-height: 58vh; /* Generous height allowing full shoulder to show clearly */
+    max-height: clamp(190px, 32vh, 270px); /* Compact height ensuring all buttons fit on screen (User request Photo 2->3) */
     object-fit: contain;
     object-position: top center;
     display: block;
@@ -1948,8 +1950,8 @@ body.page-loaded .hero-visual-wrap {
   .hero-container {
     position: relative;
     z-index: 2;
-    margin-top: 14px; /* Positive spacing ensures text is NEVER on the girl */
-    padding: 0 20px;
+    margin-top: 6px; /* Tight compact margin */
+    padding: 0 16px;
     width: 100%;
   }
 
@@ -1964,15 +1966,25 @@ body.page-loaded .hero-visual-wrap {
 
   .hero-top-eyebrow {
     justify-content: center;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
+    gap: 10px;
+  }
+
+  .hero-top-eyebrow .eyebrow-line {
+    width: 20px;
+  }
+
+  .hero-top-eyebrow .eyebrow-text {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
   }
 
   .hero-title-refined {
     text-align: center;
-    font-size: clamp(1.65rem, 6.8vw, 2.35rem);
-    line-height: 1.18;
-    letter-spacing: 0.03em;
-    margin-bottom: 24px;
+    font-size: clamp(1.35rem, 5.4vw, 1.85rem);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    margin-bottom: 14px;
   }
 
   .hero-line,
@@ -1987,28 +1999,30 @@ body.page-loaded .hero-visual-wrap {
     align-items: center;
     justify-content: center;
     width: 100%;
-    gap: 16px;
-    margin-bottom: 22px;
+    gap: 10px;
+    margin-bottom: 12px;
   }
 
   .hero-cta-group-refined .btn-gold {
     width: 100%;
-    max-width: 360px;
-    padding: 16px 28px;
-    font-size: 0.98rem;
+    max-width: 310px;
+    padding: 13px 24px;
+    font-size: 0.92rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 9999px;
   }
 
   .hero-secondary-action {
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 0.84rem;
+    gap: 8px;
   }
 
   .hero-sec-arrow-circle {
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
   }
 
   .hero-scroll-indicator {
@@ -2016,17 +2030,118 @@ body.page-loaded .hero-visual-wrap {
     bottom: auto;
     left: auto;
     transform: none;
-    margin-top: 18px;
-    margin-bottom: 6px;
+    margin-top: 6px;
+    margin-bottom: 2px;
     align-self: center;
+    gap: 4px;
+  }
+
+  .scroll-mouse-pill {
+    width: 18px;
+    height: 30px;
+    padding-top: 4px;
+    border-width: 1.2px;
+  }
+
+  .scroll-mouse-wheel {
+    width: 2.5px;
+    height: 5px;
+  }
+}
+
+/* Extra short mobile viewport protection (e.g. iPhone SE / browser toolbars) */
+@media (max-height: 720px) and (max-width: 991px) {
+  .hero-section {
+    padding-top: 60px;
+    padding-bottom: 8px;
+  }
+  .hero-model-img {
+    max-height: 26vh;
+  }
+  .hero-title-refined {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  .hero-cta-group-refined {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .hero-cta-group-refined .btn-gold {
+    padding: 11px 20px;
+    font-size: 0.88rem;
+    max-width: 280px;
+  }
+  .hero-scroll-indicator {
+    margin-top: 4px;
   }
 }
 
 @media (max-width: 640px) {
   .review-slide-card { flex: 0 0 100%; }
-  .cookie-banner { bottom: 16px; right: 16px; left: 16px; width: auto; }
-  .cookie-buttons-row { flex-direction: column; }
-  .cookie-buttons-row .btn { width: 100%; }
+  
+  /* Compact, sleek Cookie Notice on mobile (User request: не такой большой) */
+  .cookie-banner {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    max-width: none;
+    padding: 12px 14px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .cookie-header {
+    display: none; /* Hide redundant header to save vertical space on mobile */
+  }
+
+  .cookie-text {
+    font-size: 0.74rem;
+    line-height: 1.35;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+  }
+
+  .cookie-text a {
+    color: var(--accent-gold);
+    text-underline-offset: 2px;
+  }
+
+  .cookie-buttons-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .cookie-buttons-row .btn {
+    width: auto;
+    height: 36px;
+    min-height: 36px;
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .cookie-buttons-row #cookieAcceptAll {
+    flex: 1.2;
+    font-weight: 500;
+  }
+
+  .cookie-buttons-row #cookieNecessaryOnly {
+    flex: 1;
+    padding: 8px 8px;
+    font-size: 0.74rem;
+  }
 }
 
 
