@@ -1013,7 +1013,8 @@ body.page-loaded .hero-visual-wrap {
 .services-section {
   padding-top: var(--section-pad-y);
   padding-bottom: var(--section-pad-y);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary); /* Seamless matching background with hero - zero border or shade step */
+  border-top: none;
   position: relative;
 }
 
@@ -1892,8 +1893,9 @@ body.page-loaded .hero-visual-wrap {
     min-height: 100vh;
     min-height: 100svh; /* Exactly fills screen on mobile Safari/Chrome without cutting off or peeking next section */
     min-height: 100dvh;
-    padding-top: 52px; /* Sits naturally under fixed header */
-    padding-bottom: clamp(10px, 2vh, 18px); /* Clean luxury breathing room above Safari bottom bar */
+    padding-top: 74px; /* Lowered by ~22px per user request */
+    padding-bottom: clamp(6px, 1.5vh, 12px); /* Clean luxury breathing room above Safari bottom bar */
+    border-bottom: none;
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
@@ -1960,7 +1962,7 @@ body.page-loaded .hero-visual-wrap {
     position: relative;
     z-index: 2;
     flex: 0 0 auto;
-    margin-top: -20px; /* Softly overlays onto the feathered lower edge of the portrait */
+    margin-top: 2px; /* Shifted lower per user request */
     padding: 0 20px;
     width: 100%;
     max-width: 100%;
@@ -2004,9 +2006,9 @@ body.page-loaded .hero-visual-wrap {
   .hero-title-refined {
     text-align: left; /* Left-aligned */
     font-family: var(--font-serif);
-    font-size: clamp(2.05rem, 8.4vw, 2.6rem); /* Noticeably larger per user request */
-    line-height: 1.12;
-    letter-spacing: 0.005em;
+    font-size: clamp(2.25rem, 9.2vw, 2.85rem); /* Even larger and more commanding per user request */
+    line-height: 1.1;
+    letter-spacing: 0.002em;
     text-transform: none; /* Sentence case matching high-fashion reference */
     margin-bottom: 18px;
     width: 100%;
@@ -2130,26 +2132,27 @@ body.page-loaded .hero-visual-wrap {
 /* Extra short mobile viewport protection (e.g. iPhone SE / browser toolbars) */
 @media (max-height: 720px) and (max-width: 991px) {
   .hero-section {
-    padding-top: 48px;
-    padding-bottom: 10px;
+    padding-top: 66px; /* Shifted lower */
+    padding-bottom: 6px;
     min-height: 100vh;
     min-height: 100svh;
     min-height: 100dvh;
+    border-bottom: none;
   }
   .hero-visual-wrap {
-    max-height: 42vh;
-    min-height: 180px;
+    max-height: 40vh;
+    min-height: 170px;
   }
   .hero-model-img {
-    max-height: 42vh;
+    max-height: 40vh;
   }
   .hero-container {
-    margin-top: -14px;
+    margin-top: -4px;
     padding: 0 16px;
   }
   .hero-title-refined {
-    font-size: clamp(1.75rem, 7.5vw, 2.15rem);
-    margin-bottom: 12px;
+    font-size: clamp(1.85rem, 8vw, 2.3rem);
+    margin-bottom: 10px;
   }
   .hero-cta-group-refined {
     gap: 8px;
