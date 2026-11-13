@@ -8,7 +8,7 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Backgrounds */
-  --bg-primary: #050507;
+  --bg-primary: #000000;
   --bg-secondary: #0A0A0E;
   --bg-card: #0F0F14;
   --bg-card-hover: #15151D;
@@ -548,7 +548,7 @@ body.page-loaded .site-header {
   right: 0;
   bottom: 0;
   height: 140px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(5, 5, 7, 0.35) 45%, rgba(5, 5, 7, 0.82) 80%, #050507 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.82) 80%, #000000 100%);
   pointer-events: none;
   z-index: 2;
 }
@@ -588,7 +588,8 @@ body.page-loaded .hero-visual-wrap {
   /* Silky smooth darkening dissolution at bottom (User request: плавное затемнение внизу) */
   -webkit-mask-image: linear-gradient(
     to bottom,
-    #000 0%,
+    transparent 0%,
+    #000 3%,
     #000 74%,
     rgba(0, 0, 0, 0.88) 82%,
     rgba(0, 0, 0, 0.55) 90%,
@@ -597,7 +598,8 @@ body.page-loaded .hero-visual-wrap {
   );
   mask-image: linear-gradient(
     to bottom,
-    #000 0%,
+    transparent 0%,
+    #000 3%,
     #000 74%,
     rgba(0, 0, 0, 0.88) 82%,
     rgba(0, 0, 0, 0.55) 90%,
@@ -612,9 +614,9 @@ body.page-loaded .hero-visual-wrap {
   pointer-events: none;
   background:
     /* Delicate left feather for smooth blending into dark background */
-    linear-gradient(to right, #050507 0%, rgba(5, 5, 7, 0.8) 8%, rgba(5, 5, 7, 0.15) 25%, transparent 45%),
+    linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0.8) 8%, rgba(0, 0, 0, 0.15) 25%, transparent 45%),
     /* Silky bottom smooth darkening to seamlessly melt the model into the deep background */
-    linear-gradient(to bottom, transparent 60%, rgba(5, 5, 7, 0.25) 75%, rgba(5, 5, 7, 0.7) 86%, rgba(5, 5, 7, 0.95) 95%, #050507 100%);
+    linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.25) 75%, rgba(0, 0, 0, 0.7) 86%, rgba(0, 0, 0, 0.95) 95%, #000000 100%);
 }
 
 .hero-container {
@@ -1935,14 +1937,16 @@ body.page-loaded .hero-visual-wrap {
     /* Soft luxurious dissolution at bottom melting directly into dark background */
     -webkit-mask-image: linear-gradient(
       to bottom,
-      #000 0%,
+      transparent 0%,
+      #000 3%,
       #000 84%,
       rgba(0, 0, 0, 0.45) 94%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to bottom,
-      #000 0%,
+      transparent 0%,
+      #000 3%,
       #000 84%,
       rgba(0, 0, 0, 0.45) 94%,
       transparent 100%
@@ -2006,8 +2010,8 @@ body.page-loaded .hero-visual-wrap {
   .hero-title-refined {
     text-align: left; /* Left-aligned */
     font-family: var(--font-serif);
-    font-size: clamp(2.25rem, 9.2vw, 2.85rem); /* Even larger and more commanding per user request */
-    line-height: 1.1;
+    font-size: clamp(2.35rem, 9.6vw, 3.1rem); /* Increased slightly per user request */
+    line-height: 1.08;
     letter-spacing: 0.002em;
     text-transform: none; /* Sentence case matching high-fashion reference */
     margin-bottom: 18px;
@@ -2151,7 +2155,7 @@ body.page-loaded .hero-visual-wrap {
     padding: 0 16px;
   }
   .hero-title-refined {
-    font-size: clamp(1.85rem, 8vw, 2.3rem);
+    font-size: clamp(1.95rem, 8.4vw, 2.45rem);
     margin-bottom: 10px;
   }
   .hero-cta-group-refined {
