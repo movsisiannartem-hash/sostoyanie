@@ -128,7 +128,7 @@ button {
    -------------------------------------------------------------------------- */
 .text-gold {
   color: var(--accent-gold-light);
-  font-style: italic;
+  font-style: normal;
   font-family: var(--font-serif);
 }
 
@@ -1981,7 +1981,7 @@ body.page-loaded .hero-visual-wrap {
     min-height: 100vh;
     min-height: 100svh; /* Exactly fills screen on mobile Safari/Chrome without cutting off or peeking next section */
     min-height: 100dvh;
-    padding-top: 74px; /* Lowered by ~22px per user request */
+    padding-top: 84px; /* Does not cross/overlap the site header (78px) */
     padding-bottom: clamp(6px, 1.5vh, 12px); /* Clean luxury breathing room above Safari bottom bar */
     border-bottom: none;
     position: relative;
@@ -1997,8 +1997,8 @@ body.page-loaded .hero-visual-wrap {
     width: 100%;
     max-width: 100%;
     flex: 1 1 auto;
-    min-height: 220px;
-    max-height: 48vh;
+    min-height: 240px;
+    max-height: 52vh; /* Slightly taller per user request */
     margin: 0 auto;
     padding: 0;
     opacity: 1 !important;
@@ -2008,33 +2008,31 @@ body.page-loaded .hero-visual-wrap {
     overflow: visible;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* Sits directly above the inscription */
   }
 
   .hero-model-img {
     width: auto;
     max-width: 100%;
     height: 100%;
-    max-height: 48vh;
+    max-height: 52vh; /* Slightly taller per user request */
     object-fit: contain; /* Full model portrait: face, voluminous curls, and bare shoulder in full view */
-    object-position: center top;
+    object-position: center bottom; /* Sits directly above the inscription */
     display: block;
     margin: 0 auto;
     /* Soft luxurious dissolution at bottom melting directly into dark background */
     -webkit-mask-image: linear-gradient(
       to bottom,
-      transparent 0%,
-      #000 3%,
-      #000 84%,
-      rgba(0, 0, 0, 0.45) 94%,
+      #000 0%,
+      #000 86%,
+      rgba(0, 0, 0, 0.45) 96%,
       transparent 100%
     );
     mask-image: linear-gradient(
       to bottom,
-      transparent 0%,
-      #000 3%,
-      #000 84%,
-      rgba(0, 0, 0, 0.45) 94%,
+      #000 0%,
+      #000 86%,
+      rgba(0, 0, 0, 0.45) 96%,
       transparent 100%
     );
   }
@@ -2052,7 +2050,7 @@ body.page-loaded .hero-visual-wrap {
     position: relative;
     z-index: 2;
     flex: 0 0 auto;
-    margin-top: 2px; /* Shifted lower per user request */
+    margin-top: -4px; /* Sits directly under model photo without gap */
     padding: 0 20px;
     width: 100%;
     max-width: 100%;
@@ -2222,7 +2220,7 @@ body.page-loaded .hero-visual-wrap {
 /* Extra short mobile viewport protection (e.g. iPhone SE / browser toolbars) */
 @media (max-height: 720px) and (max-width: 991px) {
   .hero-section {
-    padding-top: 66px; /* Shifted lower */
+    padding-top: 80px; /* Safe clearance below header */
     padding-bottom: 6px;
     min-height: 100vh;
     min-height: 100svh;
@@ -2230,11 +2228,13 @@ body.page-loaded .hero-visual-wrap {
     border-bottom: none;
   }
   .hero-visual-wrap {
-    max-height: 40vh;
-    min-height: 170px;
+    max-height: 44vh;
+    min-height: 180px;
+    align-items: flex-end;
   }
   .hero-model-img {
-    max-height: 40vh;
+    max-height: 44vh;
+    object-position: center bottom;
   }
   .hero-container {
     margin-top: -4px;
